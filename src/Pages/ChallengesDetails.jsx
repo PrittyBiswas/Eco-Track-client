@@ -16,12 +16,7 @@ const ChallengesDetails = () => {
                 <img
                     src={challenge.imageUrl}
                     alt={challenge.title}
-<<<<<<< HEAD
                     className="w-full md:w-1/2 h-64 object-cover rounded-xl border border-green-600 shadow-xl"
-
-=======
-                    className="w-full md:w-1/2 h-64 object-cover rounded-xl"
->>>>>>> b0bbc17 (Add api & connected with  data base and display in home section)
                 />
 
                 {/* DETAILS */}
@@ -35,29 +30,25 @@ const ChallengesDetails = () => {
                     </p>
 
                     <p className="text-gray-800 font-medium mb-6">
-                        Duration Date: <span className="text-secondary "> {challenge.startDate} - {challenge.endDate} </span>
+                        Duration Date:
+                        <span className="text-secondary">
+                            {" "}
+                            {challenge.startDate} - {challenge.endDate}
+                        </span>
                     </p>
 
                     {/* JOIN NOW BUTTON */}
-                    <button className="btn bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700">
+                    <button className="btn bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition">
                         Join Now
                     </button>
 
                     {/* GO BACK BUTTON */}
                     <Link
                         to="/AllChallenges"
-<<<<<<< HEAD
                         className="mt-4 ml-4 inline-block px-2 py-2 rounded-lg border border-green-600 text-green-700 font-medium hover:bg-green-600 hover:text-white transition"
                     >
                         ← Go Back
                     </Link>
-
-=======
-                        className="mt-4 inline-block text-blue-600 hover:underline"
-                    >
-                        ← Go Back
-                    </Link>
->>>>>>> b0bbc17 (Add api & connected with  data base and display in home section)
                 </div>
 
             </div>

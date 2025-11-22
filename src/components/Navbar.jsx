@@ -13,11 +13,13 @@ const Navbar = () => {
     };
 
     const navLinkClass = ({ isActive }) =>
-        `cursor-pointer px-2 py-1 font-medium text-gray-800 hover:text-green-600 transition ${isActive ? "border-b-2 border-green-600" : ""
+        `cursor-pointer px-2 py-1 font-medium text-gray-800 hover:text-green-600 transition ${
+            isActive ? "border-b-2 border-green-600" : ""
         }`;
 
     return (
         <nav className="flex items-center justify-between px-6 py-3 shadow-md bg-white">
+            
             {/* Left - Logo */}
             <div className="flex items-center gap-2">
                 <img src={Logo} alt="EcoTrack Logo" className="w-10 h-10" />
@@ -25,20 +27,11 @@ const Navbar = () => {
             </div>
 
             {/* Center - Navigation Links */}
-<<<<<<< HEAD
             <ul className="flex gap-8">
                 <li><NavLink to="/" className={navLinkClass}>Home</NavLink></li>
                 <li><NavLink to="/AllChallenges" className={navLinkClass}>Challenges</NavLink></li>
-                <li><NavLink to="/UserChallenges" className={navLinkClass}>UserChallenges</NavLink></li>
+                <li><NavLink to="/UserChallenges" className={navLinkClass}>User Challenges</NavLink></li>
                 <li><NavLink to="/events" className={navLinkClass}>Events</NavLink></li>
-=======
-            <ul className="flex gap-8 text-gray-800 font-medium">
-                <li className="hover:text-secondary cursor-pointer"><NavLink to="/">Home</NavLink></li>
-                <li className="hover:text-secondary cursor-pointer"><NavLink to="/AllChallenges">Challenges</NavLink></li>
-
-                <li className="hover:text-secondary cursor-pointer"><NavLink to="/UserChallenges"> UserChallenges</NavLink></li>
-                <li className="hover:text-secondary cursor-pointer"><NavLink to="/Events"> Events </NavLink></li>
->>>>>>> b0bbc17 (Add api & connected with  data base and display in home section)
             </ul>
 
             {/* Right - User Info */}
@@ -52,9 +45,10 @@ const Navbar = () => {
                                 className="w-10 h-10 rounded-full border-2 border-green-600 cursor-pointer"
                             />
                         </Link>
+
                         <button
                             onClick={handleLogOut}
-                            className="btn border border-green-600 text-green-600 hover:bg-green-600 hover:text-white px-4 py-1 rounded-lg transition"
+                            className="border border-green-600 text-green-600 hover:bg-green-600 hover:text-white px-4 py-1 rounded-lg transition"
                         >
                             Log Out
                         </button>
@@ -62,13 +56,13 @@ const Navbar = () => {
                 ) : (
                     <NavLink
                         to="/login"
-                        className="btn border border-green-600 text-green-600 hover:bg-green-600 hover:text-white px-4 py-1 rounded-lg transition"
+                        className="border border-green-600 text-green-600 hover:bg-green-600 hover:text-white px-4 py-1 rounded-lg transition"
                     >
                         Login
                     </NavLink>
                 )}
             </div>
-        </nav >
+        </nav>
     );
 };
 
