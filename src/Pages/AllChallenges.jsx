@@ -5,7 +5,7 @@ const AllChallenges = () => {
     const [challenges, setChallenges] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:5000/Challenges")
+        fetch("https://eco-web-server.vercel.app/Challenges")
             .then((res) => res.json())
             .then((data) => setChallenges(data))
             .catch((error) =>

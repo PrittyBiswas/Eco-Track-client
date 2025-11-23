@@ -14,7 +14,7 @@ const Home = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch("http://localhost:5000/Challenges")
+        fetch("https://eco-web-server.vercel.app/Challenges")
             .then((res) => res.json())
             .then((data) => setChallenges(data))
             .catch((error) => console.log("Error loading challenges:", error));

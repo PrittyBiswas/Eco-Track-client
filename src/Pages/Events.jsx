@@ -6,7 +6,7 @@ const Events = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch("http://localhost:5000/event")
+        fetch("https://eco-web-server.vercel.app/event")
             .then(res => res.json())
             .then(data => {
                 setEvents(data);
