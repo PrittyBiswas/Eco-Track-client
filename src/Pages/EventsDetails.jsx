@@ -1,12 +1,16 @@
-import React from 'react';
-import { useLoaderData, Link } from 'react-router'; 
+import React, { useContext, } from 'react';
+import { useLoaderData, Link } from 'react-router';
+import { ActivitiesContext } from '../context/ActivitiesProvider';
 
 const EventsDetails = () => {
-    const event = useLoaderData(); 
-    console.log("Event Details:", event);
+    const event = useLoaderData();
+    const { handleJoin } = useContext(ActivitiesContext);
+    handleJoin(event, "Event");
+
 
     if (!event)
         return <p className="text-center mt-10">Loading...</p>;
+
 
     return (
         <div className="max-w-4xl mx-auto mt-10 mb-10 p-6 bg-white rounded-xl shadow-lg">
@@ -28,7 +32,10 @@ const EventsDetails = () => {
                     </p>
 
                     {/* JOIN NOW BUTTON */}
-                    <button className="btn bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700">
+                    <button
+                        onClick={handleJoin}
+                        className="btn bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700"
+                    >
                         Join Now
                     </button>
 
@@ -39,6 +46,7 @@ const EventsDetails = () => {
                     >
                         ← Go Back
                     </Link>
+
                 </div>
             </div>
         </div>

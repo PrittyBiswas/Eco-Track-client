@@ -5,7 +5,7 @@ const UserChallenges = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch("https://eco-web-server.vercel.app/UserChallenges")
+        fetch("http://localhost:5000/UserChallenges")
             .then((res) => res.json())
             .then((data) => {
                 setUserChallenges(data);

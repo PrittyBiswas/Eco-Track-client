@@ -1,8 +1,15 @@
 import { Link, useLoaderData } from "react-router";
+import { useContext } from "react";
+import { ActivitiesContext } from "../context/ActivitiesProvider";
+
 
 const ChallengesDetails = () => {
     const challenge = useLoaderData();
-    console.log("Loaded challenge:", challenge);
+
+    const { handleJoin } = useContext(ActivitiesContext);
+    handleJoin(challenge, "Challenge");
+
+
 
     if (!challenge)
         return <p className="text-center mt-10">Loading...</p>;
@@ -32,13 +39,15 @@ const ChallengesDetails = () => {
                     <p className="text-gray-800 font-medium mb-6">
                         Duration Date:
                         <span className="text-secondary">
-                            {" "}
-                            {challenge.startDate} - {challenge.endDate}
+                            {" "}{challenge.startDate} - {challenge.endDate}
                         </span>
                     </p>
 
                     {/* JOIN NOW BUTTON */}
-                    <button className="btn bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition">
+                    <button
+                        onClick={() => handleJoin(challenge)}
+                        className="btn bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700"
+                    >
                         Join Now
                     </button>
 
@@ -49,8 +58,9 @@ const ChallengesDetails = () => {
                     >
                         ← Go Back
                     </Link>
-                </div>
 
+
+                </div>
             </div>
         </div>
     );

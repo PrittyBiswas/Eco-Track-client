@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import Header from "../components/Header";
 import Challenges from "./Challenges";
 
 // ICON IMPORTS
@@ -8,17 +7,27 @@ import { IoLocationSharp } from "react-icons/io5";
 import { FiPhoneCall } from "react-icons/fi";
 import { MdEmail } from "react-icons/md";
 import { FaFacebookF, FaInstagram, FaLinkedin } from "react-icons/fa";
+import Banner from "../components/Banner";
 
 const Home = () => {
     const [challenges, setChallenges] = useState([]);
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch("https://eco-web-server.vercel.app/Challenges")
-            .then((res) => res.json())
-            .then((data) => setChallenges(data))
-            .catch((error) => console.log("Error loading challenges:", error));
+        fetch("http://localhost:5000/Challenges")
+            .then(res => res.json())
+            .then(data => {
+                const arr = Array.isArray(data)
+                    ? data
+                    : Array.isArray(data.data)
+                        ? data.data
+                        : [];
+
+                setChallenges(arr);
+            })
+            .catch(err => console.log("Error loading challenges:", err));
     }, []);
+
 
     // Show only 6 items
     const limitedChallenges = challenges.slice(0, 6);
@@ -26,8 +35,7 @@ const Home = () => {
     return (
         <div>
             {/* Header */}
-            <Header />
-
+            <Banner></Banner>
             {/* Challenges Section */}
             <h1 className="text-3xl font-bold mt-10 text-center">Challenges</h1>
 
@@ -61,7 +69,7 @@ const Home = () => {
 
                             <div className="flex items-start gap-3">
                                 <IoLocationSharp className="text-green-700 text-2xl" />
-                                <p>Warangle , India</p>
+                                <p> Warangal , India</p>
                             </div>
 
                             <div className="flex items-start gap-3">

@@ -20,6 +20,8 @@ import AllChallenges from './Pages/AllChallenges.jsx';
 import Events from './Pages/Events.jsx';
 import EventsDetails from './Pages/EventsDetails.jsx';
 import Profile from './components/Profile.jsx';
+import MyActivities from './Pages/MyActivities.jsx';
+import { ActivitiesProvider } from './context/ActivitiesProvider.jsx';
 
 const router = createBrowserRouter([
   {
@@ -60,10 +62,11 @@ const router = createBrowserRouter([
         path: "/ChallengesDetails/:id",
         element: <ChallengesDetails />,
         loader: async ({ params }) => {
-          const res = await fetch("https://eco-web-server.vercel.app/Challenges");
+          const res = await fetch(`https://eco-web-server.vercel.app/Challenges/${params.id}`);
           const data = await res.json();
-          return data.find(item => item._id === params.id);
+          return data;
         },
+        errorElement: <div>Oops! Something went wrong loading the challenge.</div>
       },
 
       // Events
@@ -82,6 +85,10 @@ const router = createBrowserRouter([
           return data;
         }
       },
+      {
+        path: "activities",
+        Component: MyActivities
+      },
 
       // Profile Page
       {
@@ -95,7 +102,11 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
+
+      <ActivitiesProvider>
+        <RouterProvider router={router} />
+      </ActivitiesProvider>
+
     </AuthProvider>
   </StrictMode>,
 )
