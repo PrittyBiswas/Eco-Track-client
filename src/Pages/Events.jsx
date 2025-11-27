@@ -6,7 +6,7 @@ const Events = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch("http://localhost:5000/event")
+        fetch("https://eco-web-server.vercel.app/event")
             .then(res => res.json())
             .then(data => {
                 setEvents(data);
@@ -41,7 +41,7 @@ const Events = () => {
 
                             {/* Event Details Button */}
                             <Link
-                                to={`/eventDetails/${event._id}`} 
+                                to={`/eventDetails/${event._id}`}
                                 className="mt-4 inline-block w-full text-center bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition"
                             >
                                 See Details

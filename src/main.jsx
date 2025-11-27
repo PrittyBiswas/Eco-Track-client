@@ -47,7 +47,7 @@ const router = createBrowserRouter([
         element: <ChallengesDetails />,
         loader: async ({ params }) => {
           const res = await fetch(
-            `http://localhost:5000/Challenges/${params.id}`
+            `https://eco-web-server.vercel.app/Challenges/${params.id}`
           );
           return res.json();
         },
@@ -61,7 +61,7 @@ const router = createBrowserRouter([
         element: <EventsDetails />,
         loader: async ({ params }) => {
           const res = await fetch(
-            `http://localhost:5000/event/${params.id}`
+            `https://eco-web-server.vercel.app/event/${params.id}`
           );
           return res.json();
         },
